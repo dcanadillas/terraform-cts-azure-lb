@@ -7,5 +7,5 @@ output "ports" {
 # }
  
 output "loadbalancer" {
-  value = module.lb.lb_fqdn
+  value = module.lb
 }

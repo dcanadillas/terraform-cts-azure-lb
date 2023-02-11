@@ -16,6 +16,7 @@ locals {
   services_unique_ports = { for service,data in local.consul_services : service => distinct(data[*].port)[0] }
   # Map of vm ==> rg
   vms = distinct([ for i in var.services : { vms = i.meta.azure_vm, rgs = i.meta.resource_group} ])
+
  
 }
 
