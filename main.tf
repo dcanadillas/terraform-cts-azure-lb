@@ -72,7 +72,7 @@ module "security_rules" {
   # Let's assume that there is only one RG and one location. TODO: probably think on a multi-location scenario
   location = coalesce(distinct([ for i in data.azurerm_resource_group.main : i.location]) ...)
   resource_group = coalesce(distinct([ for i in data.azurerm_resource_group.main : i.name]) ...)
-  security_group_name = coalesce(local.security_group ...)
+  security_group_name = basename(coalesce(local.security_group ...))
 }
 
 
